@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trazmo (Stealth Mode)</title>
+    <title>Trazmo</title>
     <style>
         body, html {
             margin: 0;
@@ -11,7 +11,7 @@
             height: 100%;
             overflow: hidden;
             font-family: Arial, sans-serif;
-            background-color: #121212;
+            background-color: #000000;
             color: #ffffff;
         }
         .parallax {
@@ -37,25 +37,29 @@
             margin: 0;
             font-family: Helvetica, Arial, sans-serif;
         }
-        .background {
+        .contact-button {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000000;
-            transform: translateZ(-1px) scale(2);
-            z-index: -1;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
     <div class="parallax">
-        <div class="background"></div>
         <div class="layer">
-            <img src="Black Logo.png" alt="Trazmo Logo">
+            <img src="/mnt/data/Black Logo.png" alt="Trazmo Logo">
             <p>Stealth Mode: ON</p>
         </div>
+        <a href="mailto:your-email@example.com" class="contact-button">Get in Touch</a>
     </div>
     <script>
         // JavaScript for interactive parallax effect
