@@ -3,20 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing Page</title>
+    <title>Trazmo</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        body, html {
             margin: 0;
-            font-size: 55px;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
             font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .parallax {
+            height: 100vh;
+            width: 100%;
+            perspective: 1px;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        .layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .layer h1 {
+            font-size: 4em;
+            margin: 0;
+        }
+        .layer p {
+            font-size: 1.5em;
+            margin: 0;
+        }
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.example.com/background.jpg') no-repeat center center/cover;
+            transform: translateZ(-1px) scale(2);
+            z-index: -1;
         }
     </style>
 </head>
 <body>
-    Testing
+    <div class="parallax">
+        <div class="background"></div>
+        <div class="layer">
+            <h1>Trazmo</h1>
+            <p>Stealth Mode: ON</p>
+        </div>
+    </div>
+    <script>
+        // JavaScript for interactive parallax effect
+        document.addEventListener('scroll', function(e) {
+            const layers = document.querySelectorAll('.layer');
+            const scrollPosition = window.pageYOffset;
+            layers.forEach(layer => {
+                const depth = layer.getAttribute('data-depth');
+                const movement = -(scrollPosition * depth);
+                const translate3d = 'translate3d(0, ' + movement + 'px, 0)';
+                layer.style.transform = translate3d;
+            });
+        });
+    </script>
 </body>
 </html>
