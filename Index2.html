@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stealth Mode</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100%;
+            background-color: black;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+        }
+
+        .parallax {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('BG.png') no-repeat center center;
+            background-size: cover;
+            z-index: -1;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .text {
+            font-size: 55px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="parallax"></div>
+    <img src="Black Logo.png" alt="Logo" class="logo">
+    <div class="text">Shhhh 🤫 Stealth Mode is ON</div>
+
+    <script>
+        document.addEventListener('mousemove', (event) => {
+            const parallax = document.querySelector('.parallax');
+            const moveX = (event.clientX / window.innerWidth) * 10;
+            const moveY = (event.clientY / window.innerHeight) * 10;
+            parallax.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+</body>
+</html>
